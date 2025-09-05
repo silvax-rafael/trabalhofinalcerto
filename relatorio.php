@@ -9,17 +9,16 @@
 <body>
 
 <!-- ====== HEADER ====== -->
-<header class="header">
-    <div class="logo">
-        <img src="fundo.png" alt="Logo" class="img">
-    </div>
+
+    <aside class="sidebar">
+    <img src="fundo.png" alt="Logo Sistema">
     <nav class="menu">
-        <a href="#">HOME</a>
-        <a href="#">INFORMAÇÕES PESSOAIS</a>
-        <a href="#">RELATÓRIO</a>
-        <a href="#">SOBRE</a>
+      <a href="#" class="active">🏠 HOME</a>
+      <a href="#">👤 INFORMAÇÕES PESSOAIS</a>
+      <a href="#">📊 RELATÓRIO</a>
+      <a href="#">ℹ️ SOBRE</a>
     </nav>
-</header>
+  </aside>
 
 <!-- ====== CONTEÚDO PRINCIPAL ====== -->
 <main class="container">
