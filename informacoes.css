@@ -1,141 +1,247 @@
-/* Paleta de cores */
+/* ====== Paleta de cores UNIFICADA ====== */
 :root {
-  --primary: #85E4F8;       /* azul claro */
-  --primary-dark: #4dcfe8;  /* azul médio */
-  --primary-light: #b6f0fa; /* azul bem claro */
-  --bg: #f9fbfc;            /* fundo */
-  --text: #1e293b;          /* texto principal */
-  --muted: #64748b;         /* texto secundário */
-  --border: #dbeafe;        /* bordas */
-  --radius: 14px;
-  --shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    /* Paleta baseada no seu código anterior (azul/ciano forte) */
+    --primary: #3d94aa;          /* Azul Ciano Principal */
+    --primary-dark: #2a7386;     /* Azul Ciano Escuro (para contraste e footer) */
+    --primary-light: #b6f0fa;    /* Azul Ciano Claro (para hover/background leve) */
+    
+    --bg: #f0faff;               /* Fundo geral (azul muito claro) */
+    --bg-light: #e6f8fc;         /* Fundo leve (hover/detalhes) */
+    --card: #ffffff;             /* Fundo de cards e box (BRANCO) */
+    
+    --text: #1e293b;             /* Texto principal */
+    --muted: #64748b;            /* Texto secundário */
+    --border: #dbeafe;           /* Bordas */
+    
+    --radius: 14px;
+    --shadow: 0 8px 25px rgba(50, 100, 150, 0.15); /* Sombra refinada */
+    
+    /* Cores adicionais */
+    --success: #16a34a;
+    --warning: #f59e0b;
+    --danger: #ef4444;
 }
 
 /* Reset */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: system-ui, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, sans-serif;
 }
 
 /* Body */
 body {
-  background: var(--bg);
-  color: var(--text);
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-/* Header */
-.header {
-  background: var(--primary);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px 40px;
-  box-shadow: var(--shadow);
-  border-bottom-left-radius: var(--radius);
-  border-bottom-right-radius: var(--radius);
+/* =================== HEADER =================== */
+
+.sidebar {
+    width: 240px;
+    background: var(--card);
+    border-right: 1px solid var(--border);
+    padding: 24px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    box-shadow: var(--shadow);
+    z-index: 1000; /* Garante que fique acima de tudo */
 }
 
-.logo img {
-  height: 60px;
-  border-radius: var(--radius);
+.sidebar img {
+    width: 140px;
+    margin: 0 auto 20px;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.btn-sair {
+    padding: 12px 14px;
+    border-radius: var(--radius); /* Usa a variável de radius */
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    font-size: 0.95rem;
+    background: var(--danger);
+    text-align: center;
+    transition: all 0.25s;
+    margin-top: auto; /* Empurra para o final da sidebar */
+}
+
+.btn-sair:hover {
+    background: #dc2626; 
+    transform: translateY(-1px); /* Suavizei o translate */
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Espaçamento menor para mais organização */
 }
 
 .menu a {
-  text-decoration: none;
-  color: white;
-  margin-left: 24px;
-  font-size: 1rem;
-  font-weight: 600;
-  transition: 0.3s;
-}
-
-.menu a i {
-  margin-right: 6px;
+    padding: 12px 14px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--text);
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
 }
 
 .menu a:hover {
-  color: var(--primary-light);
+    background: var(--bg-light);
+    color: var(--primary-dark); /* Cor mais escura no hover */
 }
 
-/* Main */
+.menu a.active {
+    /* Destaque forte, usando a cor primária no fundo */
+    background: var(--primary);
+    color: var(--card); /* Branco */
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(61, 148, 170, 0.4); /* Sombra para o ativo */
+}
+
+
+/* =================== CONTEÚDO PRINCIPAL (MAIN) =================== */
 main {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 40px 20px;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 50px 20px;
 }
 
 .box {
-  background: #fff;
-  border-radius: var(--radius);
-  padding: 32px 28px;
-  width: 420px;
-  box-shadow: var(--shadow);
-  border: 1px solid var(--border);
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  transition: transform 0.2s, box-shadow 0.2s;
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 35px 35px;
+    width: 450px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeIn 0.6s ease-out;
 }
 
 .box:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+    transform: translateY(-6px);
+    box-shadow: 0 16px 35px rgba(0, 0, 0, 0.1);
 }
 
 .box h2 {
-  text-align: center;
-  margin-bottom: 20px;
-  font-weight: 700;
-  font-size: 1.5rem;
-  color: var(--primary-dark);
-  letter-spacing: 1px;
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: 800;
+    font-size: 1.8rem;
+    color: var(--primary-dark);
+    letter-spacing: 0.5px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--primary-light);
 }
 
-/* Linhas de informação */
+/* =================== LINHAS DE INFORMAÇÃO =================== */
 .linha {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-top: 1px solid var(--border);
-  padding: 14px 12px;
-  font-size: 1rem;
-  color: var(--text);
-  transition: background 0.2s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--border);
+    padding: 16px 0;
+    font-size: 1.05rem;
+    color: var(--text);
+    transition: background 0.25s ease;
 }
 
 .linha:first-of-type {
-  border-top: none;
+    border-top: none;
 }
 
 .linha:hover {
-  background: var(--primary-light);
-  color: var(--text);
-  border-radius: var(--radius);
+    background: var(--bg-light);
+    color: var(--text);
+    padding: 16px 12px;
+    margin: 0 -15px;
 }
 
 .linha span:first-child {
-  font-weight: 600;
-  color: var(--muted);
+    font-weight: 500;
+    color: var(--muted);
+    font-size: 0.95rem;
+    text-transform: uppercase;
 }
 
-/* Footer */
+.linha span:last-child {
+    font-weight: 700;
+    color: var(--primary-dark);
+}
+
+/* =================== FOOTER =================== */
 .footer {
-  background: var(--primary-dark);
-  height: 60px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  font-size: 0.95rem;
-  box-shadow: var(--shadow);
-  border-top-left-radius: var(--radius);
-  border-top-right-radius: var(--radius);
+    background: var(--primary-dark); 
+    height: 55px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 0.9rem;
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+    border-top-left-radius: var(--radius);
+    border-top-right-radius: var(--radius);
+}
+
+/* =================== RESPONSIVIDADE =================== */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        padding: 12px 20px;
+        text-align: center;
+    }
+
+    .logo {
+        margin-bottom: 10px;
+    }
+
+    .menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px;
+    }
+
+    .menu a {
+        padding: 6px 10px;
+        font-size: 0.85rem;
+    }
+
+    main {
+        padding: 30px 15px;
+    }
+
+    .box {
+        width: 100%;
+        max-width: 450px;
+        padding: 25px 20px;
+    }
+
+    .box:hover {
+        transform: none;
+        box-shadow: var(--shadow);
+    }
+    
+    .linha:hover {
+        padding: 16px 0;
+        margin: 0;
+    }
 }

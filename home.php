@@ -223,10 +223,10 @@
   <aside class="sidebar">
     <img src="fundo.png" alt="Logo Sistema">
     <nav class="menu">
-      <a href="#" class="active">🏠 HOME</a>
-      <a href="#">👤 INFORMAÇÕES PESSOAIS</a>
-      <a href="#">📊 RELATÓRIO</a>
-      <a href="#">ℹ️ SOBRE</a>
+      <a href="home.php" class="active">🏠 HOME</a>
+      <a href="informacoes.php">👤 INFORMAÇÕES PESSOAIS</a>
+      <a href="relatorio.php">📊 RELATÓRIO</a>
+      <a href="sobre.php">ℹ️ SOBRE</a>
     </nav>
   </aside>
 

@@ -9,16 +9,16 @@
 </head>
 <body>
   <!-- Cabeçalho -->
-  <header class="header">
-    <div class="logo">
-      <img src="fundo.png" alt="Logo do sistema" class="img">
-    </div>
+   <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <img src="fundo.png" alt="Logo Sistema">
     <nav class="menu">
-      <a href="index.html"><i class="fas fa-home"></i> home</a>
-      <a href="informacoes.html"><i class="fas fa-user"></i> inf. pessoais</a>
-      <a href="relatorio.html"><i class="fas fa-file-alt"></i> relatório</a>
+      <a href="home.php" class="active">🏠 HOME</a>
+      <a href="informacoes.php">👤 INFORMAÇÕES PESSOAIS</a>
+      <a href="relatorio.php">📊 RELATÓRIO</a>
+      <a href="sobre.php">ℹ️ SOBRE</a>
     </nav>
-  </header>
+  </aside>
 
   <!-- Conteúdo -->
   <main>

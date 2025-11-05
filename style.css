@@ -1,228 +1,311 @@
+/* ====== Paleta de cores OTIMIZADA ====== */
 :root {
-  --bg: #f0faff;
-  --bg-light: #e6f8fc;
-  --card: #ffffff;
-  --muted: #64748b;
-  --text: #1e293b;
-  --border: #dbeafe;
-  --primary: #3d94aa;
-  --primary-dark: #4dcfe8;
-  --primary-light: #b6f0fa;
-  --success: #16a34a;
-  --warning: #f59e0b;
-  --danger: #ef4444;
-  --radius: 14px;
-  --shadow: 0 6px 18px rgba(71, 162, 204, 0.08);
+    --bg: #f0faff;               /* Fundo geral (azul muito claro) */
+    --bg-light: #e6f8fc;         /* Fundo leve (hover/detalhes) */
+    --card: #ffffff;             /* Fundo de cards e sidebar (BRANCO) */
+    --muted: #64748b;            /* Texto secundário (cinza azulado) */
+    --text: #1e293b;             /* Texto principal (quase preto) */
+    --border: #dbeafe;           /* Bordas (azul bem claro) */
+    --primary: #3d94aa;          /* Azul Ciano Principal */
+    --primary-dark: #2a7386;     /* Azul Ciano Escuro (para contraste) */
+    --primary-light: #b6f0fa;    /* Azul Ciano Claro */
+    --success: #16a34a;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+    --radius: 14px;
+    --shadow: 0 8px 25px rgba(50, 100, 150, 0.15); /* Sombra mais refinada */
 }
 
+/* Reset */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Fonte moderna e limpa */
+    font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, sans-serif;
 }
 
+/* Body */
 body {
-  display: flex;
-  min-height: 100vh;
-  background: linear-gradient(180deg, var(--primary), var(--bg));
-  color: var(--text);
+    display: flex;
+    min-height: 100vh;
+    /* Suavizando o gradiente */
+    background: linear-gradient(180deg, var(--primary), var(--bg));
+    color: var(--text);
+    line-height: 1.5;
 }
 
 /* =================== SIDEBAR =================== */
 .sidebar {
-  width: 240px;
-  background: var(--card);
-  border-right: 1px solid var(--border);
-  padding: 24px 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  box-shadow: var(--shadow);
+    width: 240px;
+    background: var(--card);
+    border-right: 1px solid var(--border);
+    padding: 24px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    box-shadow: var(--shadow);
+    z-index: 1000; /* Garante que fique acima de tudo */
 }
 
 .sidebar img {
-  width: 140px;
-  margin: 0 auto 20px;
-  display: block;
-  border-radius: 8px;
+    width: 140px;
+    margin: 0 auto 20px;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .btn-sair {
-  padding: 12px 14px;
-  border-radius: 10px;
-  text-decoration: none;
-  color: white;
-  font-weight: 600;
-  font-size: 0.95rem;
-  background: #ef4444; /* vermelho */
-  text-align: center;
-  transition: all 0.25s;
+    padding: 12px 14px;
+    border-radius: var(--radius); /* Usa a variável de radius */
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    font-size: 0.95rem;
+    background: var(--danger);
+    text-align: center;
+    transition: all 0.25s;
+    margin-top: auto; /* Empurra para o final da sidebar */
 }
 
 .btn-sair:hover {
-  background: #dc2626; /* vermelho mais escuro */
-  transform: translateY(-2px);
+    background: #dc2626; 
+    transform: translateY(-1px); /* Suavizei o translate */
 }
 
 .menu {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Espaçamento menor para mais organização */
 }
 
 .menu a {
-  padding: 12px 14px;
-  border-radius: 10px;
-  text-decoration: none;
-  color: var(--text);
-  font-size: 0.95rem;
-  font-weight: 500;
-  transition: all 0.25s;
+    padding: 12px 14px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--text);
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
 }
 
 .menu a:hover {
-  background: var(--bg-light);
-  color: var(--primary);
+    background: var(--bg-light);
+    color: var(--primary-dark); /* Cor mais escura no hover */
 }
 
 .menu a.active {
-  background: var(--primary);
-  color: #fff;
-  font-weight: 600;
+    /* Destaque forte, usando a cor primária no fundo */
+    background: var(--primary);
+    color: var(--card); /* Branco */
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(61, 148, 170, 0.4); /* Sombra para o ativo */
 }
 
-/* =================== CONTEÚDO =================== */
+/* =================== CONTEÚDO PRINCIPAL =================== */
 .main {
-  margin-left: 240px;
-  flex: 1;
-  padding: 32px;
+    margin-left: 240px;
+    flex: 1;
+    padding: 32px;
+    z-index: 1; 
 }
 
 .card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  overflow: hidden;
-  animation: fadeIn 0.5s ease;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    animation: fadeIn 0.5s ease;
+    margin-bottom: 30px; /* Adiciona margem abaixo dos cards */
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(12px); }
-  to { opacity: 1; transform: translateY(0); }
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-/* =================== HEADER =================== */
+/* =================== HEADER DO CARD =================== */
 .header {
-  padding: 16px 20px;
-  border-bottom: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    padding: 20px 24px; /* Aumentei o padding */
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--bg-light); /* Fundo leve para o cabeçalho do card */
 }
 
 .title {
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: var(--primary);
+    font-size: 1.4rem; /* Um pouco maior */
+    font-weight: 700;
+    color: var(--primary-dark); /* Cor escura primária */
 }
 
 /* =================== TABELA =================== */
 .table-wrap {
-  width: 100%;
-  overflow-x: auto;
+    width: 100%;
+    overflow-x: auto;
+    padding: 0 0 1px 0; /* Para evitar que a borda de baixo suma */
 }
 
 table {
-  width: 100%;
-  border-collapse: collapse;
-  min-width: 720px;
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 720px;
+    font-size: 0.95rem;
 }
 
 thead th {
-  text-align: left;
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--muted);
-  background: var(--bg-light);
-  position: sticky;
-  top: 0;
-  z-index: 1;
+    text-align: left;
+    font-size: 0.85rem;
+    font-weight: 700; /* Mais negrito */
+    color: var(--text);
+    background: var(--primary-light); /* Fundo claro para o cabeçalho da tabela */
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    text-transform: uppercase; /* Mais profissional */
 }
 
 th, td {
-  padding: 14px 20px;
-  border-bottom: 1px solid var(--border);
-  vertical-align: middle;
+    padding: 16px 24px; /* Aumentei o padding */
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+}
+
+tbody tr:last-child td {
+    border-bottom: none; /* Remove borda da última linha */
 }
 
 tbody tr:hover td {
-  background: rgba(255, 255, 255, 0.03);
-  transition: background 0.25s ease;
+    background: var(--bg-light); /* Hover suave */
 }
 
 /* =================== BADGES =================== */
 .badge {
-  display: inline-flex;
-  align-items: center;
-  font-size: 0.8rem;
-  font-weight: 600;
-  padding: 6px 12px;
-  border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.8rem;
+    font-weight: 700; /* Mais negrito */
+    padding: 6px 12px;
+    border-radius: 999px;
+    text-transform: capitalize;
 }
 
 .ok { background: #bbf7d0; color: #166534; }
 .pendente { background: #fde68a; color: #92400e; }
 .atrasado { background: #fecaca; color: #991b1b; }
 
-/* =================== BOTÕES =================== */
+/* =================== BOTÕES DE AÇÃO =================== */
 .actions {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
 }
 
 .btn {
-  border: none;
-  background: var(--bg-light);
-  color: var(--text);
-  padding: 8px 14px;
-  font-size: 0.9rem;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: all 0.25s;
+    border: 1px solid var(--border); /* Adiciona uma borda sutil */
+    background: var(--card);
+    color: var(--text);
+    padding: 10px 16px; /* Aumentei o padding */
+    font-size: 0.9rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.25s;
+    font-weight: 600;
 }
 
 .btn:hover {
-  background: #1e293b;
-  transform: translateY(-2px);
+    background: var(--bg-light);
+    color: var(--primary-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    border-color: var(--primary-light);
 }
 
-.btn-primary { background: var(--primary); color: #fff; }
-.btn-primary:hover { background: #2563eb; }
-.btn-danger { background: var(--danger); color: #fff; }
-.btn-danger:hover { background: #dc2626; }
+.btn-primary { 
+    background: var(--primary); 
+    color: var(--card); 
+    border-color: var(--primary); /* Remove borda padrão */
+}
+.btn-primary:hover { 
+    background: var(--primary-dark); 
+    color: var(--card);
+    border-color: var(--primary-dark);
+}
+
+.btn-danger { 
+    background: var(--danger); 
+    color: var(--card); 
+    border-color: var(--danger);
+}
+.btn-danger:hover { 
+    background: #dc2626; 
+    color: var(--card);
+    border-color: #dc2626;
+}
 
 /* =================== RESPONSIVIDADE =================== */
 @media (max-width: 768px) {
-  .sidebar { width: 200px; }
-  .main { margin-left: 200px; }
+    .sidebar { width: 200px; }
+    .main { margin-left: 200px; padding: 20px; }
 }
 
 @media (max-width: 600px) {
-  .sidebar {
-    position: fixed;
-    width: 100%;
-    height: auto;
-    flex-direction: row;
-    justify-content: space-around;
-    padding: 12px;
-  }
-  .sidebar img { display: none; }
-  .main { margin-left: 0; margin-top: 80px; }
+    /* Ajustes para dispositivos móveis */
+    .sidebar {
+        position: static; /* Não fixa mais */
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        padding: 12px 16px;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        gap: 10px;
+    }
+    
+    .sidebar img { display: none; }
+    
+    .menu {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 8px;
+        flex-grow: 1;
+    }
+
+    .menu a {
+        padding: 8px 12px;
+        font-size: 0.85rem;
+    }
+    
+    .btn-sair {
+        margin-top: 0;
+        padding: 8px 12px;
+        font-size: 0.85rem;
+    }
+
+    .main { 
+        margin-left: 0; 
+        margin-top: 0; 
+        padding: 20px 15px; 
+    }
+    
+    .header { padding: 15px 20px; }
+    .title { font-size: 1.2rem; }
+    
+    .card { margin-bottom: 20px; }
+
+    /* Força o scroll horizontal para a tabela, se necessário */
+    .table-wrap { overflow-x: scroll; } 
+    table { min-width: 600px; } /* Garante que a tabela não quebre */
+    
+    th, td { padding: 12px 15px; }
 }
